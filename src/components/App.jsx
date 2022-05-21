@@ -1,8 +1,8 @@
-import Modal from './component/Modal/Modal.js';
+import Modal from './Modal';
 
 import React, { Component } from 'react';
 
-export default class componentName extends Component {
+export default class App extends Component {
   state = {
     showModal: false,
   };
