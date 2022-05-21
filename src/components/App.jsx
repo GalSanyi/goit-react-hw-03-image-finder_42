@@ -1,16 +1,32 @@
-export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
-  );
-};
+import Modal from './component/Modal/Modal.js';
+
+import React, { Component } from 'react';
+
+export default class App extends Component {
+  state = {
+    showModal: false,
+  };
+  toggleModal = () => {
+    this.setState(({ showModal }) => ({
+      showModal: !showModal,
+    }));
+  };
+  render() {
+    const { showModal } = this.state;
+    return (
+      <>
+        <button type="button" onClick={this.toggleModal}>
+          open modal
+        </button>
+        {showModal && (
+          <Modal>
+            <h1>Hello world</h1>
+            <button type="button" onClick={this.toggleModal}>
+              close
+            </button>
+          </Modal>
+        )}
+      </>
+    );
+  }
+}
